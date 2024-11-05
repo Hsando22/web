@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende Español - Plataforma de Aprendizaje</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <main>
+        <!-- Encabezado con logo y título -->
+        <header class="header">
+
+            <h1>Aprende Español</h1>
+            <p>Un viaje de aprendizaje personalizado y progresivo.</p>
+        </header>
+
+        <!-- Sección de Inicio de Sesión -->
+        <section id="loginSection" class="auth-section">
+            <h2><i class="fas fa-sign-in-alt"></i> Inicio de Sesión</h2>
+            <form onsubmit="loginUser(); return false;">
+                <input type="text" id="login_username" placeholder="Nombre de usuario" required>
+                <input type="password" id="login_password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <p id="loginMessage"></p>
+            <p>¿No tienes una cuenta? <a href="#" onclick="showSection('registerSection')">Regístrate aquí</a></p>
+        </section>
+
+        <!-- Sección de Registro -->
+        <section id="registerSection" class="auth-section" style="display: none;">
+            <h2><i class="fas fa-user-plus"></i> Registro de Usuario</h2>
+            <form onsubmit="registerUser(); return false;">
+                <input type="text" id="reg_username" placeholder="Nombre de usuario" required>
+                <input type="password" id="reg_password" placeholder="Contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+            <p id="registerMessage"></p>
+            <button onclick="showSection('loginSection')" class="back-button">Regresar</button>
+        </section>
+
+        <!-- Sección de Temas--> 
+<section id="topicsSection" class="content-section" style="display: none;">
+    <h2><i class="fas fa-book-reader"></i> Temas</h2>
+            <button onclick="fetchTopics()">Ver Temas</button>
+            <ul id="topicsContainer"></ul>
+    <button onclick="showSection('loginSection')" class="back-button">
+        <i class="fas fa-arrow-left"></i> Regresar
+    </button>
+</section>
+
+<!-- Sección de Ejercicios -->
+<section id="exerciseSection" class="content-section" style="display: none;">
+    <h2>Ejercicio</h2>
+    <p id="exerciseQuestion"></p>
+                <input type="text" id="userAnswer" placeholder="Tu respuesta">
+                <button onclick="checkAnswer()">Verificar Respuesta</button>
+                <p id="feedback"></p>
+                <button onclick="saveProgress()">Guardar Avance</button>
+    <button onclick="showSection('topicsSection')" class="back-button">
+        <i class="fas fa-arrow-left"></i> Regresar a Temas
+    </button>
+</section>
+
+
+        <!-- Pie de página -->
+        <footer>
+            <p>© 2024 Aprende Español. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+
+    <script src="../static/script.js"></script>
+    
+</body>
+</html>
